@@ -3,8 +3,8 @@ using UnityEngine;
 public class movimentoplayer : MonoBehaviour
 {
     public float velocidade = 5f;
-    public float limiteEsquerdo = -7f;
-    public float limiteDireito = 7f; 
+    public float limiteEsquerdo = -50f;
+    public float limiteDireito = 50f; 
 
     void Update()
     {
