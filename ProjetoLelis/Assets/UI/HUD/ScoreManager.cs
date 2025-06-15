@@ -8,7 +8,8 @@ public class ScoreManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
-    public TextMeshProUGUI lifeScoreText; // Opcional, se quiser mostrar vida
+    public TextMeshProUGUI lifeScoreText;
+    public GameObject restartText;
 
     public tomardano player;
 
@@ -25,9 +26,14 @@ public class ScoreManager : MonoBehaviour
         // Score por tempo (1 ponto por segundo)
         ScoreManager.instance?.AddTimeScore(Time.deltaTime);
 
-        if (player != null && player.IsDead() && Input.GetKeyDown(KeyCode.Space))
+        if (player != null && player.IsDead())
         {
-            SceneManager.LoadScene("MainGame");
+            restartText.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                
+                SceneManager.LoadScene("MainGame");
+            }
         }
     }
 
