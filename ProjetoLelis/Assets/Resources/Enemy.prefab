@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 7919260158799714727}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 50, z: 48.7}
+  m_LocalPosition: {x: -112.2, y: 28.329649, z: 54.599995}
   m_LocalScale: {x: 3.872, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -187,3 +187,5 @@ MonoBehaviour:
   fireIntervalMin: 1.5
   fireIntervalMax: 3.5
   vida: 1
+  audioSource: {fileID: 3749832673805962461, guid: bad123fd5f61f4e469bc87995a07f356, type: 3}
+  somInimigo: {fileID: 8300000, guid: ac0e8d3d41963ea44ade2cb8f45ac933, type: 3}

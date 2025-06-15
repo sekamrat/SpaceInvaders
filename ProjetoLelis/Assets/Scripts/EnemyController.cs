@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
 
     private float nextFireTime;
 
+    public AudioSource audioSource;
+    public AudioClip somInimigo;
     void Start()
     {
         ScheduleNextShot();
@@ -42,6 +44,7 @@ public class EnemyController : MonoBehaviour
     public void TomarDano(int dano)
     {
         vida -= dano;
+        
         if (vida <= 0)
         {
             // Score baseado no tempo de jogo
@@ -55,6 +58,8 @@ public class EnemyController : MonoBehaviour
     {
         if (other.CompareTag("PlayerBullet"))
         {
+            audioSource.pitch = UnityEngine.Random.Range(3f, 5f);
+            audioSource.PlayOneShot(somInimigo);
             TomarDano(1);
             Destroy(other.gameObject);
         }
