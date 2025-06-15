@@ -4,6 +4,9 @@ using System.Collections;
 
 public class tomardano : MonoBehaviour
 {
+    
+    public AudioSource audioSource;
+    public AudioClip somExplosao;
     public int vidaMaxima = 3;
     private int vidaAtual;
     private bool isDead = false;
@@ -16,7 +19,7 @@ public class tomardano : MonoBehaviour
 
     void Update()
     {
-        // Se o player está morto e apertar espaço, reinicia a cena
+        // Se o player estï¿½ morto e apertar espaï¿½o, reinicia a cena
         if (isDead && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("MainGame");
@@ -26,7 +29,8 @@ public class tomardano : MonoBehaviour
     public void TomarDano(int dano)
     {
         if (isDead) return;
-
+        audioSource.pitch = UnityEngine.Random.Range(3f, 5f);
+        audioSource.PlayOneShot(somExplosao);
         vidaAtual -= dano;
         Debug.Log("Jogador levou dano! Vida restante: " + vidaAtual);
         ScoreManager.instance?.SetLife(vidaAtual);
@@ -39,11 +43,12 @@ public class tomardano : MonoBehaviour
 
     IEnumerator Morrer()
     {
+        audioSource.PlayOneShot(somExplosao);
         Debug.Log("Jogador morreu!");
         ScoreManager.instance?.GameOver();
         isDead = true;
         gameObject.SetActive(false);
-        // Não reinicia a cena automaticamente, só ao apertar espaço
+        // Nï¿½o reinicia a cena automaticamente, sï¿½ ao apertar espaï¿½o
         yield break;
     }
     public bool IsDead()
